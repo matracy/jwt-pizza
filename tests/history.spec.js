@@ -1,6 +1,6 @@
 import { test, expect } from "playwright-test-coverage";
 
-test("Diner dashboard", async ({ page }) => {
+test("History exists", async ({ page }) => {
 	//load DOM router
 	await page.goto("/");
 

@@ -29,7 +29,7 @@ test("Admin dashboard as non-admin", async ({ page }) => {
 	await expect(page.locator("h2")).toContainText("Oops");
 });
 
-test("Franchise dashboard as a franchise", async ({ page }) => {
+test("Admin dashboard as admin", async ({ page }) => {
 	await page.route("*/**/api/auth", async (route) => {
 		const loginRes = {
 			user: {

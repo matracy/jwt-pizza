@@ -56,7 +56,6 @@ jobs:
   release:
     needs:
       - build
-      - deploy
     runs-on: ubuntu-latest
     steps:
       - name: Create Release
@@ -64,8 +63,8 @@ jobs:
         env:
           version: ${{needs.build.outputs.version}}
         with:
-          tag: version-${{ env.version }}
-          name: Version ${{ env.version }}
+          tag: staging-version-${{ env.version }}
+          name: staging-version ${{ env.version }}
           body: |
             ## 🚀 Changes
 
@@ -78,7 +77,7 @@ jobs:
       id-token: write
     runs-on: ubuntu-latest
     environment:
-      name: staging
+      name: production
       url: https://stage-pizza.someplaceto.click
     env:
       version: ${{needs.build.outputs.version}}
